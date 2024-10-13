@@ -1,0 +1,535 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+
+
+header {
+    text-align: center;
+}
+
+h1, h2 {
+    color: #333;
+}
+
+.seating-plan {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.seat {
+    width: 30px;
+    height: 30px;
+    margin: 0 5px;
+    background-color: #4CAF50; /* Зеленый для свободных мест */
+    color: white;
+    text-align: center;
+    line-height: 30px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.seat:hover {
+    transform: scale(1.1);
+}
+
+.selected {
+    background-color: #2196F3; /* Синий для выбранных мест */
+}
+
+.occupied {
+    background-color: #f44336; /* Красный для занятых мест */
+}
+
+footer {
+    text-align: center;
+    margin-top: 20px;
+}
+/* Общие стили для кнопок */
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px;
+    font-size: 16px;
+    color: white;
+    background-color: #4CAF50; /* Зеленый фон */
+    border: 2px solid transparent; /* Прозрачная граница */
+    border-radius: 5px; /* Скругленные углы */
+    transition: background-color 0.3s, border-color 0.3s, transform 0.2s; /* Плавный переход */
+}
+
+/* Эффект при наведении */
+.button:hover {
+    background-color: #45a049; /* Более темный зеленый фон */
+    border-color: #FFD700; /* Золотая обводка */
+    transform: scale(1.05); /* Увеличение кнопки при наведении */
+}
+
+/* Дополнительные стили для конкретных кнопок (если нужно) */
+.button-contact {
+    background-color: #2196F3; /* Синий фон */
+}
+
+.button-contact:hover {
+    background-color: #1976D2; /* Темно-синий фон при наведении */
+}
+
+.button-price {
+    background-color: #FF9800; /* Оранжевый фон */
+}
+
+.button-price:hover {
+    background-color: #FB8C00; /* Темно-оранжевый фон при наведении */
+}
+
+.button-date {
+    background-color: #9C27B0; /* Фиолетовый фон */
+}
+
+.button-date:hover {
+    background-color: #8E24AA; /* Темно-фиолетовый фон при наведении */
+}
+
+.button-payment {
+    background-color: #F44336; /* Красный фон */
+}
+
+.button-payment:hover {
+    background-color: #E53935; /* Темно-красный фон при наведении */
+}
+/* Общие стили для контейнера */
+.container {
+    display: flex;
+    flex-direction: column; /* Расположение элементов в столбик */
+    align-items: flex-start; /* Выравнивание по левому краю */
+}
+
+/* Общие стили для кнопок */
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px 0; /* Отступы только сверху и снизу */
+    font-size: 16px;
+    color: white;
+    background-color: #4CAF50; /* Зеленый фон */
+    border: 2px solid transparent; /* Прозрачная граница */
+    border-radius: 5px; /* Скругленные углы */
+    transition: background-color 0.3s, border-color 0.3s, transform 0.2s; /* Плавный переход */
+}
+
+/* Эффект при наведении */
+.button:hover {
+    background-color: #45a049; /* Более темный зеленый фон */
+    border-color: #FFD700; /* Золотая обводка */
+    transform: scale(1.05); /* Увеличение кнопки при наведении */
+}
+
+/* Стили для секций информации */
+.info {
+    display: none; /* Скрываем информацию по умолчанию */
+}
+
+.button-contact:focus + .info,
+.button-price:focus + .info,
+.button-date:focus + .info,
+.button-payment:focus + .info,
+.button-contact:hover + .info,
+.button-price:hover + .info,
+.button-date:hover + .info,
+.button-payment:hover + .info {
+    display: block; /* Показываем информацию при наведении или фокусе на кнопке */
+}
+
+/* Стили для форм */
+form {
+    margin-top: 10px;
+}
+.seats {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.seat {
+    width: 40px;
+    height: 40px;
+    background-color: #4CAF50; /* Свободное место */
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.seat.taken {
+    background-color: #f44336; /* Занятое место */
+}
+        
+        h1, h2, h3 {
+            color: #333;
+        }
+        .container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .button {
+            background-color: #007BFF;
+            color: white;
+            border: 2px solid transparent;
+            border-radius: 5px;
+            padding: 10px 15px;
+            cursor: pointer;
+            transition: all 0.2s ease; /* Время перехода */
+            margin: 10px 0;
+            display: inline-block; /* Для правильного отображения */
+        }
+        .button:hover {
+            border-color: #0056b3; /* Цвет обводки при наведении */
+            transform: scale(1.05); /* Эффект увеличения */
+        }
+        .info {
+            margin-top: 20px;
+        }
+
+/* Стили для контейнера формы */
+.form-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+/* Стили для заголовка формы */
+.form-container h2 {
+    text-align: center;
+    color: #333;
+}
+
+/* Стили для полей ввода */
+input[type="text"],
+input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+/* Стили для кнопки */
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #28a745; /* Зеленый цвет */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* Эффект при наведении на кнопку */
+button:hover {
+    background-color: #218838; /* Темнее зеленый при наведении */
+}
+
+/* Стили для сообщений об успешной операции */
+.success-message {
+    display: none; /* Скрыто по умолчанию */
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #d4edda; /* Светло-зеленый фон */
+    color: #155724; /* Темно-зеленый текст */
+    border: 1px solid #c3e6cb; /* Зеленая рамка */
+    border-radius: 4px;
+}
+/* Стили для контейнера формы */
+.form-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+/* Стили для заголовка формы */
+.form-container h2 {
+    text-align: center;
+    color: #333;
+}
+
+/* Стили для полей ввода */
+input[type="text"],
+input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+/* Стили для кнопки */
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #28a745; /* Зеленый цвет */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* Эффект при наведении на кнопку */
+button:hover {
+    background-color: #218838; /* Темнее зеленый при наведении */
+}
+
+/* Стили для сообщений об успешной операции */
+.success-message {
+    display: none; /* Скрыто по умолчанию */
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #d4edda; /* Светло-зеленый фон */
+    color: #155724; /* Темно-зеленый текст */
+    border: 1px solid #c3e6cb; /* Зеленая рамка */
+    border-radius: 4px;
+}
+/* Стили для контейнера расписания */
+.schedule-container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+/* Стили для каждого сеанса */
+.session {
+    border: 1px solid #007bff; /* Синий цвет */
+    border-radius: 4px;
+    padding: 15px;
+    margin: 10px 0;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+/* Эффект при наведении на сеанс */
+.session:hover {
+    background-color: #e7f0ff; /* Светло-синий фон при наведении */
+}
+
+/* Стили для плана рассадки */
+.seating-plan {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #28a745; /* Зеленый цвет */
+    border-radius: 5px;
+    background-color: #d4edda; /* Светло-зеленый фон */
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+select, input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    outline: none; /* Убираем стандартный контур */
+}
+
+select:hover, input[type="text"]:hover {
+    border-color: #888; /* Цвет обводки при наведении */
+}
+
+select:focus, input[type="text"]:focus {
+    border-color: #007BFF; /* Цвет обводки при фокусе */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Эффект тени при фокусе */
+}
+
+.container {
+    max-width: 400px;
+    margin: auto;
+}
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    outline: none; /* Убираем стандартный контур */
+}
+
+input[type="number"]:hover {
+    border-color: #888; /* Цвет обводки при наведении */
+}
+
+input[type="number"]:focus {
+    border-color: #007BFF; /* Цвет обводки при фокусе */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Эффект тени при фокусе */
+}
+
+.container {
+    max-width: 400px;
+    margin: auto;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 20px;
+    background-color: #f9f9f9;
+}
+
+.button {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+.info {
+    margin-top: 20px;
+    display: none;
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: white;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="tel"],
+input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+input[type="tel"]:focus,
+input[type="email"]:focus {
+    border-color: #007BFF;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 20px;
+}
+
+.seat-selection {
+    max-width: 600px;
+    margin: auto;
+    text-align: center;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    color: #333;
+}
+
+.theater {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+    margin: 5px 0;
+}
+
+.seat {
+    width: 40px;
+    height: 40px;
+    margin: 0 5px;
+    background-color: #28a745;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.seat:hover {
+    background-color: #218838;
+}
+
+.seat.taken {
+    background-color: #dc3545;
+    cursor: not-allowed;
+}
+
+#reset-selection {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#reset-selection:hover {
+    background-color: #0056b3;
+}

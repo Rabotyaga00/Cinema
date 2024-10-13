@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Бронирование билетов</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url("https://media.baamboozle.com/uploads/images/782616/1683553302_2044958_import-url.png"); 
+            background-size: cover; 
+            background-repeat: no-repeat; 
+            background-position: center;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #ff6e6e;
+        }
+
+        .dop {
+            color: #ff6e6e;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        h2 {
+            color: black;
+        }
+
+        .button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 10px;
+            display: block;
+        }
+
+        .button:hover {
+            background-color: #0056b3;
+        }
+
+        .info {
+            display: none; 
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 5px;
+            background-color: white;
+        }
+
+        .seating {
+            display: flex;
+            flex-wrap: wrap; 
+            justify-content: center; 
+            margin-top: 10px;
+        }
+
+        .seat {
+            width: 30px;
+            height: 30px;
+            margin: 5px; 
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            line-height: 30px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .seat.selected {
+            background-color: #2196F3;
+        }
+
+        .seat.taken {
+            background-color: #f44336;
+            cursor: not-allowed;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="dop">Форма бронирования билетов кинотеатра Салют</h1>
+    </header>
+    <main>
+        <section class="container">
+            <button class="button" onclick="toggleInfo('seating')">Выбор мест</button>
+            <h2>Выбор мест:</h2>
+            <div class="info" id="seating">
+                <div class="seating">
+                    <div class="seat" onclick="selectSeat(this)">1</div>
+                    <div class="seat" onclick="selectSeat(this)">2</div>
+                    <div class="seat" onclick="selectSeat(this)">3</div>
+                    <div class="seat taken" onclick="alert('Это место занято!')">4</div>
+                    <div class="seat" onclick="selectSeat(this)">5</div>
+                    <div class="seat" onclick="selectSeat(this)">6</div>
+                    <div class="seat" onclick="selectSeat(this)">7</div>
+                    <div class="seat taken" onclick="alert('Это место занято!')">8</div>
+                    <div class="seat" onclick="selectSeat(this)">9</div>
+                    <div class="seat" onclick="selectSeat(this)">10</div>
+                    <div class="seat" onclick="selectSeat(this)">11</div>
+                    <div class="seat taken" onclick="alert('Это место занято!')">12</div>
+                    <div class="seat" onclick="selectSeat(this)">13</div>
+                    <div class="seat" onclick="selectSeat(this)">14</div>
+                    <div class="seat" onclick="selectSeat(this)">15</div>
+                    <div class="seat taken" onclick="alert('Это место занято!')">16</div>
+                </div>
+            </div>
+            <button onclick="resetSelection()">Отменить выбор</button>
+
+            <button class="button" onclick="toggleInfo('contact')">Контактная информация</button>
+            <div class="info" id="contact">
+                <label for="phone">Номер телефона:</label>
+                <input type="tel" id="phone" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" required>
+            </div>
+
+            <button class="button" onclick="toggleInfo('payment')">Оплата</button>
+            <div class="info" id="payment">
+                <h2>Оплата</h2>
+                <button onclick="bookTickets()">Забронировать</button>
+            </div>
+        </section>
+    </main>
+    <footer><h1>&copy; 2024 Кинотеатр Салют &mdash; Все права защищены.</h1></footer>
+    <script src="js/index.js"></script>
+</body>
+</html>
